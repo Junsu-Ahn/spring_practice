@@ -8,5 +8,9 @@
      password:
    jpa:
      hibernate:
-       ddl-auto: create
+       ddl-auto: update
      show-sql: true
+ logging:
+   level:
+     org.hibernate.orm.jdbc.bind: TRACE
+     org.hibernate.orm.jdbc.extract: TRACE
