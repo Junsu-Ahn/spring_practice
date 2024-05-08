@@ -1,13 +1,14 @@
-<h1 th:text="${question.subject}"></h1>
+<h1 th:text="${question.subject}" xmlns:th="http://www.w3.org/1999/xhtml"></h1>
 <div th:text="${question.content}"></div>
 
-<form action="/question/createTemp" method="POST">
-    <div>
-        <span>
-            내용
-        </span>
-        <br>
-        <textarea name="content" placeholder="내용" rows = "5"></textarea>
-    </div>
-    <button type="submit">답변등록</button>
+<h5 th:text="|${#lists.size(question.answerList)}개의 답변이 있습니다.|"></h5>
+<div>
+    <ul>
+        <li th:each="answer : ${question.answerList}" th:text="${answer.content}"></li>
+    </ul>
+</div>
+
+<form th:action="@{|/answer/create/${question.id}|}" method="post">
+    <textarea name="content" id="content" rows="15"></textarea>
+    <input type="submit" value="답변등록">
 </form>
