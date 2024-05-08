@@ -1,5 +1,7 @@
 package com.sbs.sbb;
 
+import com.sbs.sbb.Answer.AnswerRepository;
+import com.sbs.sbb.Question.QuestionRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
