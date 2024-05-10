@@ -1,10 +1,14 @@
 package com.sbs.sbb.Question;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface QuestionRepository extends JpaRepository<Question, Integer> {
-    // JPA에 리포지터리의 메서드명을 분석하여 쿼리를 만들고 실행하는 기능
-    Question findBySubject(String s);
+import java.util.List;
 
-    Question findBySubjectAndContent(String s, String s1);
+public interface QuestionRepository extends JpaRepository<Question, Integer> {
+    Question findBySubject(String subject);
+    Question findBySubjectAndContent(String subject, String content);
+    List<Question> findBySubjectLike(String subject);
+    Page<Question> findAll(Pageable pageable);
 }
