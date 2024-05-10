@@ -20,8 +20,11 @@ public class AnswerController {
     private final AnswerService answerService;
 
     @PostMapping("/create/{id}")
-    public String createAnswer(Model model, @PathVariable("id") Integer id, @Valid AnswerForm answerForm, BindingResult bindingResult) {
+    public String createAnswer(Model model, @PathVariable("id") Integer id,
+                               @Valid AnswerForm answerForm, BindingResult bindingResult) {
+        // 답변 부모 질문객체 받아오기
         Question question = this.questionService.getQuestion(id);
+
         if (bindingResult.hasErrors()) {
             model.addAttribute("question", question);
             return "question_detail";

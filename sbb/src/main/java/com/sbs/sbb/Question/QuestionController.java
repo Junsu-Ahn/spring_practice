@@ -42,10 +42,15 @@ public class QuestionController {
         return "전송완료";
     }
 
+    // model.addAttribute 없이 바로 접근가능
+    // question_form.html에서 questionForm을 받고있다. questionForm이 없으면 실행이 안된다.
+    // 그래서 빈 객체라도 만드는 것.
+    // 빈 객체 생성
     @GetMapping("/create")
     public String questionCreate(QuestionForm questionForm) {
         return "question_form";
     }
+    // 비어있지 않은 객체 생성
     @PostMapping("/create")
     public String questionCreate(@Valid QuestionForm questionForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
