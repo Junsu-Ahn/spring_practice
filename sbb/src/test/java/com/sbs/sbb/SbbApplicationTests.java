@@ -16,7 +16,6 @@ import org.springframework.test.annotation.Rollback;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -230,10 +229,10 @@ class SbbApplicationTests {
 	}
 
 
-	@Test
-	@DisplayName("스트림 버전 데이터 밀어넣기")
-	void t013() {
-		IntStream.rangeClosed(3, 300)
-				.forEach(no -> questionService.create("테스트 제목 입니다. %d".formatted(no),"테스트 내용입니다. %d".formatted(no)));
-	}
+//	@Test
+//	@DisplayName("스트림 버전 데이터 밀어넣기")
+//	void t013() {
+//		IntStream.rangeClosed(3, 300)
+//				.forEach(no -> questionService.create("테스트 제목 입니다. %d".formatted(no),"테스트 내용입니다. %d".formatted(no)));
+//	}
 }

@@ -10,6 +10,10 @@
      hibernate:
        ddl-auto: update
      show-sql: true
+     format_sql: true
+     properties:
+       hibernate:
+         default_batch_fetch_size: 1000
  logging:
    level:
      org.hibernate.orm.jdbc.bind: TRACE
