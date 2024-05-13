@@ -25,7 +25,7 @@ public class SecurityConfig {
                                 XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)))
                 .formLogin((formLogin) -> formLogin
                         .loginPage("/user/login")
-                        .loginProcessingUrl("/user/login")
+                        // .loginProcessingUrl("/user/login")
                         .defaultSuccessUrl("/"))
         ;
         return http.build();
