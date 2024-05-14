@@ -32,13 +32,14 @@ public class QuestionService {
         }
     }
 
-    public void create(String subject, String content, SiteUser user) {
+    public Question create(String subject, String content, SiteUser user) {
         Question q = new Question();
         q.setSubject(subject);
         q.setContent(content);
         q.setCreateDate(LocalDateTime.now());
         q.setAuthor(user);
         this.questionRepository.save(q);
+        return q;
     }
 
     public Page<Question> getList(int page) {
@@ -48,6 +49,11 @@ public class QuestionService {
         return this.questionRepository.findAll(pageable);
     }
 
-
+    public void modify(Question question, String subject, String content) {
+        question.setSubject(subject);
+        question.setContent(content);
+        question.setModifyDate(LocalDateTime.now());
+        this.questionRepository.save(question);
+    }
 
 }
